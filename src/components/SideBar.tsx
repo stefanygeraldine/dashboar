@@ -15,16 +15,23 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 import SsidChartIcon from '@mui/icons-material/SsidChart';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
+import {useAppDispatch, useAppSelector} from "../app/hooks";
+import {setView, selectedMenu} from "../features/menu/menuSlice";
 
 
 const DrawerHeader = styled('div')(({ theme }) => (drawerHeaderStyle(theme)));
+
 const SideBar = (props: Props) => {
+    const menu = useAppSelector(selectedMenu);
+    const dispatch = useAppDispatch();
+
     const { open, handleDrawer } = props
     const theme = useTheme();
 
     return(
         <Drawer sx={drawerStyle()} variant="persistent" anchor="left" open={open}>
             <DrawerHeader>
+                {menu}
                 <IconButton onClick={()=>handleDrawer(false)}>
                     {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                 </IconButton>
@@ -32,7 +39,7 @@ const SideBar = (props: Props) => {
             <Divider />
             <List>
                     <ListItem disablePadding>
-                        <ListItemButton>
+                        <ListItemButton  onClick={() => dispatch(setView('Apexcharts'))}>
                             <ListItemIcon>
                                 <BarChartIcon/>
                             </ListItemIcon>
@@ -40,7 +47,7 @@ const SideBar = (props: Props) => {
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
-                        <ListItemButton>
+                        <ListItemButton  onClick={() => dispatch(setView('Recharts'))}>
                             <ListItemIcon>
                                 <BubbleChartIcon/>
                             </ListItemIcon>
@@ -48,7 +55,7 @@ const SideBar = (props: Props) => {
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
-                        <ListItemButton>
+                        <ListItemButton  onClick={() => dispatch(setView('Plotly'))}>
                             <ListItemIcon>
                                 <SsidChartIcon/>
                             </ListItemIcon>
@@ -56,11 +63,11 @@ const SideBar = (props: Props) => {
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
-                        <ListItemButton>
+                        <ListItemButton  onClick={() => dispatch(setView('ChartsJs'))}>
                             <ListItemIcon>
                                 <QueryStatsIcon/>
                             </ListItemIcon>
-                            <ListItemText primary="Charts Js" />
+                            <ListItemText primary="ChartsJs" />
                         </ListItemButton>
                     </ListItem>
 
