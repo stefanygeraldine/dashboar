@@ -24,13 +24,13 @@ export default function ApexCharts() {
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={12} md={4}>
-                    <CustomCard/>
+                    <CustomCard color="#1e88e5"/>
                 </Grid>
                 <Grid item xs={12} sm={12} md={4}>
-                    <Item> <Barchart height={height} /> </Item>
+                    <CustomCard color="#5e35b1"/>
                 </Grid>
                 <Grid item xs={12} sm={12} md={4}>
-                    <Item> <Barchart height={height} /> </Item>
+                    <CustomCard color="#ffffff" circleColor="#fceec1"/>
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <Item> <Barchart height={height} /> </Item>
