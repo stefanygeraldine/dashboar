@@ -29,7 +29,7 @@ const SideBar = (props: Props) => {
             </DrawerHeader>
             <Divider />
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                {['Apexcharts', 'Recharts', 'Plotly', 'Charts Js'].map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
                             <ListItemIcon>

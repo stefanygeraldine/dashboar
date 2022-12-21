@@ -8,3 +8,7 @@ export interface Props {
     open: boolean,
     handleDrawer: (value: boolean) => void
 }
+
+export interface ChartProps {
+    height: number,
+}
