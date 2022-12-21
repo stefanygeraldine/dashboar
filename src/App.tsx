@@ -11,7 +11,7 @@ import SideBar from "./components/SideBar";
 import Content from './components/Content'
 
 export function App() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const handleDrawer = (value: boolean) : void => {
     setOpen(value);
   };

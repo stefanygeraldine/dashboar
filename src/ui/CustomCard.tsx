@@ -5,11 +5,16 @@ import {newShade} from "../utils";
 
 type CustomCardProps = {
     color: string,
-    circleColor?: string
+    circleColor?: string,
+    children?:
+        | JSX.Element
+        | JSX.Element[]
+        | string
+        | string[]
 }
 
 export default function CustomCard(props: CustomCardProps) {
-    const { color, circleColor } = props
+    const { color, circleColor, children } = props
     const Item = styled(Paper)(({ theme }) => ({
         ...theme.typography.body2,
         backgroundColor: color,
@@ -51,7 +56,7 @@ export default function CustomCard(props: CustomCardProps) {
             }}
         >
             <Item elevation={3}>
-               custom
+                {children}
             </Item>
         </Box>
     );
