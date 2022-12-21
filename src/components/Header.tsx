@@ -12,6 +12,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 // interfaces
 import {IAppBarProps, Props} from "../interfaces";
+import {useAppSelector} from "../app/hooks";
+import {selectedMenu} from "../features/navigation/navigationSlice";
 
 const shouldForwardProp = (prop: string) => prop !== 'open'
 
@@ -20,6 +22,7 @@ const AppBar = styled(MuiAppBar, {shouldForwardProp})
 
 
 const Header = (props: Props) => {
+    const menu = useAppSelector(selectedMenu);
     const { open, handleDrawer } = props
     return(
         <AppBar position="fixed" open={open}>
@@ -34,7 +37,7 @@ const Header = (props: Props) => {
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" noWrap component="div">
-                    Persistent drawer
+                    { menu }
                 </Typography>
             </Toolbar>
         </AppBar>

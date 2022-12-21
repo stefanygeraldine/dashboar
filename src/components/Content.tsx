@@ -8,7 +8,8 @@ import {IAppBarProps, Props} from "../interfaces";
 //Components
 import ApexCharts from "../features/apexCharts/ApexCharts";
 import {useAppSelector} from "../app/hooks";
-import {selectedMenu} from "../features/menu/menuSlice";
+import {selectedMenu} from "../features/navigation/navigationSlice";
+import UnderConstruction from "./UnderConstruction";
 
 const shouldForwardProp = (prop: string) => prop !== 'open'
 
@@ -25,9 +26,7 @@ const Content = (props: Partial <Props>) => {
             <Main open={open}>
                 <DrawerHeader />
                 {menu === 'Apexcharts' &&  <ApexCharts/>}
-                {menu === 'ChartsJs' &&  <h1>ChartsJs</h1>}
-                {menu === 'Plotly' &&  <h1>Plotly</h1>}
-                {menu === 'Recharts' &&  <h1>Recharts</h1>}
+                {menu !== 'Apexcharts' &&  <UnderConstruction/>}
             </Main>
     )
 }

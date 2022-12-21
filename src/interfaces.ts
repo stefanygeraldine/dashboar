@@ -12,3 +12,9 @@ export interface Props {
 export interface ChartProps {
     height: number,
 }
+
+export type chartTypeString = 'Apexcharts' | 'Recharts' | 'Plotly' | 'ChartsJs'
+
+export interface NavigationState {
+    name: chartTypeString
+}

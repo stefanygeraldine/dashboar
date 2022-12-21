@@ -1,10 +1,8 @@
-import menuReducer, {
-  MenuState,
-  setView,
-} from './menuSlice';
+import menuReducer, { setView } from "./navigationSlice";
+import { NavigationState } from "../../interfaces";
 
-describe('menu reducer', () => {
-  const initialState: MenuState = {
+describe('navigation reducer', () => {
+  const initialState: NavigationState = {
     name: 'Recharts',
   };
   it('should handle set view', () => {
